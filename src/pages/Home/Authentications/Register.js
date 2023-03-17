@@ -60,13 +60,13 @@ const Register = () => {
               type="email"
               name="email"
               placeholder="Email"
-              className="input bg-whiteLow border-none focus:outline-none w-full font-bold"
+              className="input bg-whiteLow text-blackHigh border-none focus:outline-none w-full font-bold"
             />
             <input
               type="password"
               name="password"
               placeholder="Password"
-              className="input bg-whiteLow border-none focus:outline-none w-full my-4 font-bold"
+              className="input bg-whiteLow text-blackHigh border-none focus:outline-none w-full my-4 font-bold"
             />
             <button>
               <img className="w-12" src={loginBtn} alt="login button" />

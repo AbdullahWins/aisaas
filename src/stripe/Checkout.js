@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import SubscriptionStatus from "./SubscriptionStatus";
 
 const Checkout = () => {
   const [email, setEmail] = useState("");
@@ -38,9 +37,6 @@ const Checkout = () => {
         </option>
       </select>
       <button onClick={handleSubscribe}>Subscribe</button>
-      <div>
-        <SubscriptionStatus email={email} />
-      </div>
     </div>
   );
 };

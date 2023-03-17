@@ -19,8 +19,11 @@ import psychologist from "../../assets/cover/psychologist.png";
 import assistant from "../../assets/cover/assistant.png";
 import financial from "../../assets/cover/financial.png";
 import { AiContext } from "../../contexts/AiContext";
+import { AuthContext } from "../../contexts/AuthContext";
+import Checkout from "../../stripe/Checkout";
 
 const Home = () => {
+  const { subscriptionStatus } = useContext(AuthContext);
   const { setOutput } = useContext(AiContext);
   const resetOutput = () => {
     const output = "";
@@ -160,25 +163,28 @@ const Home = () => {
 
   return (
     <section className="max-w-11/12 mx-auto my-0 p-4">
-      {/* cards */}
-      <div className="rounded-xl">
-        <div className="text-center py-4 mb-8">
-          <p className="text-4xl font-black">
-            &#128075; Hey, what are we creating today?
+      {!subscriptionStatus ? (
+        <Checkout></Checkout>
+      ) : (
+        <div className="rounded-xl">
+          <div className="text-center py-4 mb-8">
+            <p className="text-4xl font-black">
+              &#128075; Hey, what are we creating today?
+            </p>
+            <p className="opacity-70 pt-3">
+              Get started by selecting the content type from the options below
+            </p>
+          </div>
+          <p className="font-black text-center lg:text-left opacity-70 py-2">
+            All Modules
           </p>
-          <p className="opacity-70 pt-3">
-            Get started by selecting the content type from the options below
-          </p>
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-between gap-5">
+            {moduleList?.map((module, i) => {
+              return <Card key={i} module={module}></Card>;
+            })}
+          </section>
         </div>
-        <p className="font-black text-center lg:text-left opacity-70 py-2">
-          All Modules
-        </p>
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-between gap-5">
-          {moduleList?.map((module, i) => {
-            return <Card key={i} module={module}></Card>;
-          })}
-        </section>
-      </div>
+      )}
     </section>
   );
 };
