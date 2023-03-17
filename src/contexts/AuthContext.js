@@ -54,8 +54,6 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  //
-
   useEffect(() => {
     if (!user?.email) {
       return;
@@ -87,10 +85,6 @@ const AuthProvider = ({ children }) => {
     };
     fetchSubscriptions();
   }, [user]);
-
-  if (loading) {
-    return <div>Loading subscriptions...</div>;
-  }
 
   const authInfo = {
     user,

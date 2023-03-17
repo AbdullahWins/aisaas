@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
   if (loading) {
     return (
-      <div className="h-screen">
+      <div className="h-screen flex items-center justify-center">
         <img src={loadingScreen} alt="" />
       </div>
     );

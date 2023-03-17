@@ -21,7 +21,7 @@ const Checkout = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 bg-whiteHigh p-12 rounded-xl">
+    <div className="flex flex-col items-center justify-center gap-4 bg-whiteMid text-blackMid p-4 py-44 rounded-xl">
       <h1>Subscribe to our service with {user?.email}</h1>
       <select value={plan} onChange={(e) => setPlan(e.target.value)}>
         <option value="price_1MkQZnFSVT0dmAsfrQ9iVzxO">
