@@ -22,6 +22,7 @@ import AiFinancial from "../components/Modules/AiFinancial";
 import PrivateRoute from "./PrivateRouter";
 import Login from "../pages/Home/Authentications/Login";
 import Checkout from "../stripe/Checkout";
+import Register from "../pages/Home/Authentications/Register";
 
 export const routes = createBrowserRouter([
   {
@@ -109,6 +110,10 @@ export const routes = createBrowserRouter([
         element: <AiFinancial></AiFinancial>,
       },
     ],
+  },
+  {
+    path: "/register",
+    element: <Register></Register>,
   },
   {
     path: "/login",

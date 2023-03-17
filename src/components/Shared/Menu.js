@@ -15,7 +15,7 @@ const Menu = () => {
               className="btn bg-errorColor hover:bg-mainColor btn-sm rounded-full"
               onClick={logout}
             >
-              <i class="fa-solid fa-power-off"></i>
+              <i className="fa-solid fa-power-off"></i>
             </button>
           ) : null}
         </div>

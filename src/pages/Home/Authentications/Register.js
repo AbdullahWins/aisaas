@@ -8,8 +8,8 @@ import loginBtn from "../../../assets/cover/loginbtn.png";
 import Menu from "../../../components/Shared/Menu";
 import Footer from "../../../components/Shared/Footer";
 
-const Login = () => {
-  const { loginUserEmail } = useContext(AuthContext);
+const Register = () => {
+  const { createNewUserEmail } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -26,13 +26,13 @@ const Login = () => {
       theme: "light",
     });
 
-  const handleLogin = (event) => {
+  const handleRegistration = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    loginUserEmail(email, password)
+    createNewUserEmail(email, password)
       .then((result) => {
         form.reset();
         navigate(from, { replace: true });
@@ -48,13 +48,13 @@ const Login = () => {
       </div>
       <div className="flex items-center justify-center p-8 border-2 rounded-lg border-mainColor text-whiteLow">
         <div className="flex flex-col items-center justify-center gap-4 lg:w-96">
-          <h2 className="text-center text-2xl font-bold pt-4">Login</h2>
+          <h2 className="text-center text-2xl font-bold pt-4">Register</h2>
           <figure>
             <img src={login} alt="login img" className="rounded-xl w-44" />
           </figure>
           <form
             className="flex flex-col w-full items-center justify-center"
-            onSubmit={handleLogin}
+            onSubmit={handleRegistration}
           >
             <input
               type="email"
@@ -72,9 +72,9 @@ const Login = () => {
               <img className="w-12" src={loginBtn} alt="login button" />
             </button>
             <p className="py-4">
-              Don't have an account?{" "}
-              <Link to="/register">
-                <span className="text-mainColor">Register</span>
+              Already have an account?{" "}
+              <Link to="/login">
+                <span className="text-mainColor">Login</span>
               </Link>
             </p>
           </form>
@@ -99,4 +99,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
