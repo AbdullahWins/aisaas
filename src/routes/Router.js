@@ -21,6 +21,7 @@ import PersonalAssistant from "../components/Modules/PersonalAssistant";
 import AiFinancial from "../components/Modules/AiFinancial";
 import PrivateRoute from "./PrivateRouter";
 import Login from "../pages/Home/Authentications/Login";
+import Checkout from "../stripe/Checkout";
 
 export const routes = createBrowserRouter([
   {
@@ -112,6 +113,10 @@ export const routes = createBrowserRouter([
   {
     path: "/login",
     element: <Login></Login>,
+  },
+  {
+    path: "/checkout",
+    element: <Checkout></Checkout>,
   },
   {
     path: "*",
